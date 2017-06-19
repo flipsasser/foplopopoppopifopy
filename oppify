@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+require 'optparse'
+
+config = {deoppify: false}
+option_parser = OptionParser.new do |options|
+  options.banner = 'Usage: oppify [OPTIONS] INPUT'
+  options.on('-d', '--deoppify', '--dopeopoppopifopy') do
+    config[:deoppify] = true
+  end
+end
+
+option_parser.parse!
+
+def oppex
+  '([b-d,f-h,j-n,p-v,w-x,z])'
+end
+
+def oppify(input)
+  input.gsub(/#{oppex}/i, '\1op')
+end
+
+def deoppify(input)
+  input.gsub(/#{oppex}op/i, '\1')
+end
+
+if ARGV.empty?
+  puts option_parser.banner
+elsif config[:deoppify]
+  puts deoppify(ARGV.join(' '))
+else
+  puts oppify(ARGV.join(' '))
+end
+
