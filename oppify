@@ -12,7 +12,7 @@ end
 option_parser.parse!
 
 def oppex
-  '([b-d,f-h,j-n,p-v,w-x,z])'
+  '([a-z&&[^aeiou]])'
 end
 
 def oppify(input)
