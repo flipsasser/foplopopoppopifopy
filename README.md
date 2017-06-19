@@ -8,7 +8,10 @@ Iunno, just download it weirdo
 
 ## Usage
 
+### Oppification
 ```./oppify deez noputopsop```
+
+### Deoppification
 ```./oppify -d noputopsop```
 
 ## Copyright
