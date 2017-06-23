@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'optparse'
+require './lib/oppificator'
 
 config = {deoppify: false}
 option_parser = OptionParser.new do |options|
@@ -11,23 +12,11 @@ end
 
 option_parser.parse!
 
-def oppex
-  '([a-z&&[^aeiou]])'
-end
-
-def oppify(input)
-  input.gsub(/#{oppex}/i, '\1op')
-end
-
-def deoppify(input)
-  input.gsub(/#{oppex}op/i, '\1')
-end
-
 if ARGV.empty?
   puts option_parser.banner
-elsif config[:deoppify]
-  puts deoppify(ARGV.join(' '))
-else
-  puts oppify(ARGV.join(' '))
+  exit
 end
+
+oppificator = Oppificator.new(ARGV.join(' '))
+puts config[:deoppify] ? oppificator.deoppify : oppificator.oppify
 
