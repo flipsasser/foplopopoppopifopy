@@ -17,6 +17,6 @@ if ARGV.empty?
   exit
 end
 
-oppificator = Oppificator.new(ARGV.join(' '))
+oppificator = Oppify::Oppificator.new(ARGV.join(' '))
 puts config[:deoppify] ? oppificator.deoppify : oppificator.oppify
 
