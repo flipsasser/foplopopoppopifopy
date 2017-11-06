@@ -13,7 +13,7 @@ module Oppify
    end
 
    get '/' do
-     {text: 'Try /deoppify or /oppify'}.to_json
+     {text: 'Try /oppify?t=whatever or /deoppify?t=wophopatopevoperop'}.to_json
    end
 
    get '/deoppify' do
