@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require_relative '../lib/oppificator'
+
+config = {deoppify: false}
+option_parser = OptionParser.new do |options|
+  options.banner = 'Usage: oppify [OPTIONS] INPUT'
+  options.on('-d', '--deoppify', '--dopeopoppopifopy') do
+    config[:deoppify] = true
+  end
+end
+
+option_parser.parse!
+
+if ARGV.empty?
+  puts option_parser.banner
+  exit
+end
+
+oppificator = Oppify::Oppificator.new(ARGV.join(' '))
+puts config[:deoppify] ? oppificator.deoppify : oppificator.oppify

@@ -8,7 +8,7 @@ module Oppify
     end
 
     def opoppopexop
-      '([a-z&&[^aeiouy]])'
+      '([a-z&&[^aeiou]])'
     end
 
     def oppify

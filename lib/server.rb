@@ -1,16 +1,19 @@
 require_relative './oppificator'
 require 'sinatra/base'
-require 'pry'
 
 module Oppify
  class Server < Sinatra::Base
 
    def oppifier
-     Oppify::Oppificator.new(params[:t])
+     Oppify::Oppificator.new(params[:t] || '')
    end
 
    before do
     content_type :json
+   end
+
+   get '/' do
+     {text: 'Try /deoppify or /oppify'}.to_json
    end
 
    get '/deoppify' do
@@ -23,4 +26,3 @@ module Oppify
 
  end
 end
-
